@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포켓몬 팀 빌더</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>포켓몬 팀 빌더</h1>
+        
+        <div id="team-container"></div>
+
+        <div id="analysis-result">
+            <div class="result-section">
+                <h2>📊 분석 리포트</h2>
+                <div id="individual-results">한글 또는 영문 이름을 입력하고 Enter를 누르세요.</div>
+            </div>
+            
+            <div class="result-section">
+                <h2>🏆 팀 종합 분석</h2>
+                <div id="team-report">
+                    <p><strong>🚨 취약한 타입 (2마리 이상):</strong> <span id="team-weak-summary">-</span></p>
+                    <p><strong>✅ 견제 가능한 타입 (공격기 기준):</strong> <span id="team-coverage-summary">-</span></p>
+                    <p><strong>⚠️ 견제 부족 타입:</strong> <span id="team-missing-summary">-</span></p>
+                </div>
+            </div>
+
+            <div id="npc-section" class="result-section npc-section">
+                <div class="npc-controls">
+                    <h2 style="margin-bottom: 0;">⚔️ 주요 NPC 상세 분석</h2>
+                    <div class="npc-selectors">
+                        <select id="gen-select" class="custom-select" onchange="loadNpcList()">
+                            <option value="8">8세대 (가라르)</option>
+                            <option value="4">4세대 (성도 - HGSS)</option>
+                        </select>
+                        <select id="npc-select" class="custom-select" onchange="renderNpcData()">
+                            <option value="">NPC를 선택하세요</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div id="npc-details" style="display: none;">
+                    <div class="npc-header-info">
+                        <h3 id="npc-name-display">관장 채두</h3>
+                        <span class="npc-items" id="npc-items-display">💊 고급상처약 x2</span>
+                    </div>
+                    
+                    <div class="npc-behavior">
+                        <strong>🧠 AI 패턴:</strong> <span id="npc-behavior-text">선봉은 카포에라 고정...</span>
+                    </div>
+
+                    <div class="npc-roster" id="npc-roster-display">
+                        </div>
+
+                    <div class="npc-matchup">
+                        <h4>💡 내 엔트리 맞춤 코칭</h4>
+                        <ul id="npc-matchup-list">
+                            <li>분석 대기 중...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <script src="pokemonData.js"></script>
+    <script src="moveData.js"></script>
+    <script src="swshNpcData.js"></script>
+    <script src="hgssNpcData.js"></script>
+    <script src="calculator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
